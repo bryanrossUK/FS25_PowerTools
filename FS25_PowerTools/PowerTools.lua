@@ -1635,6 +1635,9 @@ function PowerTools:keyEvent(unicode, sym, modifier, isDown)
         isMenuAllowed = isMenuAllowed and self.settings.allowRestartInMenus
         isMenuAllowed = isMenuAllowed and not isOtherMenuOpen and (numOpenDialogs == 0)
 
+	-- Only allow Server Admins to user PowerTools
+	isMenuAllowed = isMenuAllowed and self:getIsServerAdmin()
+
         -- Log:var("isPaused", isPaused)
         -- Log:var("isMenuAllowed", isMenuAllowed)
         -- Log:var("isMainMenuOpen", isMainMenuOpen)
